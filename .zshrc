@@ -23,6 +23,8 @@ export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include -I/opt/homebrew/opt/zlib/in
 export ZSH="$HOME/.oh-my-zsh"
 fpath+=("$(brew --prefix)/share/zsh/site-functions")
 
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+
 #=====================================================================================================================================
 
 # Set name of the theme to load --- if set to "random", it will
@@ -39,6 +41,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
+
+ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
@@ -107,7 +111,6 @@ export FZF_DEFAULT_OPTS="--height 100% --preview 'file {}' --preview-window=up:5
 #   --preview 'bat -n --color=always {}'
 #   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
 # Custom fzf keybindings and options
-# export FZF_CTRL_T_OPTS="--preview 'if [[ -f {} ]]; then bat --style=numbers --color=always {} 2>/dev/null; else tree -C {} | less -R; fi'"
 export FZF_CTRL_T_OPTS="
   --preview 'if [ -f {} ]; then bat --style=numbers --color=always {} 2>/dev/null || cat {}; elif [ -d {} ]; then tree -C {} | less -R; fi'
   --preview-window=up:50%:wrap"
@@ -121,10 +124,6 @@ export FZF_CTRL_R_OPTS="
   --color header:italic
   --header 'Press CTRL-Y to copy command into clipboard'"
 
-# --- alias fzf command
-alias cdf='cd $(fd --type d | fzf)'
-alias rfv="~/.config/fzf/rfv.sh"
-# source ~/.config/fzf/fzf-git.sh
 
 #=================================================== Pyenv and Pyenv-virtualenv Configuration ========================================
 
@@ -144,28 +143,66 @@ if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/usr/local/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/usr/local/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/usr/local/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
+        . "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh"
     else
-        export PATH="/usr/local/anaconda3/bin:$PATH"
+        export PATH="/opt/homebrew/Caskroom/miniconda/base/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+#============================================================== Node version manager =======================================================
+
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+# place this after nvm initialization!
+autoload -U add-zsh-hook
+
+load-nvmrc() {
+  local nvmrc_path
+  nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version
+    nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$(nvm version)" ]; then
+      nvm use
+    fi
+  elif [ -n "$(PWD=$OLDPWD nvm_find_nvmrc)" ] && [ "$(nvm version)" != "$(nvm version default)" ]; then
+    nvm use default
+  fi
+}
+
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+
 #===========================================================================================================================================
+
+
+# one password integration
+$OP_BIOMETRIC_UNLOCK_ENABLED=true
 
 alias exa="exa --icons"
 
 # -- keep this line in almost buttom of file
 typeset -U PATH
 
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
