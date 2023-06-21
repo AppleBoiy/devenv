@@ -10,10 +10,17 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export PATH=$HOME/bin:/usr/local/bin:/opt/homebrew/opt/sqlite/bin:$PATH
+
 export BAT_CONFIG_PATH="$HOME/.config/bat/bat.conf"
+
+export MANPATH=/usr/share/man
 
 # For compilers to find zlib you may need to set:
 export LDFLAGS="-L/opt/homebrew/opt/zlib/lib"
+
+# locale
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 # For pkg-config to find zlib you may need to set:
 export PKG_CONFIG_PATH="/opt/homebrew/opt/zlib/lib/pkgconfig"
@@ -98,9 +105,7 @@ CASE_SENSITIVE="true"
 plugins=(git zsh-syntax-highlighting fast-syntax-highlighting zsh-autocomplete zsh-aliases-exa forgit zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
-# Fir forgit subcommand
-# after `forgit` was loaded
-export PATH="$PATH:$FORGIT_INSTALL_DIR/bin"
+
 
 #=============================================================== FZF Customization ==========================================================
 
@@ -124,6 +129,20 @@ export FZF_CTRL_R_OPTS="
   --color header:italic
   --header 'Press CTRL-Y to copy command into clipboard'"
 
+#============================================================ Forgit =================================================================
+
+# Fir forgit subcommand
+# after `forgit` was loaded
+export PATH="$PATH:$FORGIT_INSTALL_DIR/bin"
+
+export FORGIT_FZF_DEFAULT_OPTS="
+--exact
+--border
+--cycle
+--reverse
+--height '80%'
+"
+
 
 #=================================================== Pyenv and Pyenv-virtualenv Configuration ========================================
 
@@ -138,8 +157,10 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 # Initialize pyenv
 eval "$(pyenv init -)"
 eval "$(pyenv init --path)"
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
-#===========================================================================================================================================
+if which pyenv-virtualenv-init > /dev/null; 
+  then eval "$(pyenv virtualenv-init -)";
+fi
+#==================================================================== Miniconda ===============================================================
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -186,7 +207,18 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
-#===========================================================================================================================================
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+#=========================================================================  GO  ==============================================================
+
+export PATH="/opt/homebrew/opt/go@1.18/bin:$PATH"
+export GOPATH="/opt/homebrew/opt/go@1.18/bin/go"
+
+
+#=====================================================================================================================================
 
 
 # one password integration
@@ -202,7 +234,3 @@ typeset -U PATH
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
