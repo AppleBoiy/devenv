@@ -1,127 +1,84 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
+#################################################################################################################################
+#                                                          Instant Prompt Configuration                                         #
+#################################################################################################################################
+
+# This section sets up the instant prompt for powerlevel10k.
+
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-#======================================================== Export Customized PATH ====================================================
+#################################################################################################################################
+#                                                             Environment Variables                                             #
+#################################################################################################################################
 
-# If you come from bash you might have to change your $PATH.
-# export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+# Set up the environment variables for various tools and utilities.
+
+# Set up PATH environment variable
 export PATH=$HOME/bin:/usr/local/bin:/opt/homebrew/opt/sqlite/bin:$PATH
 
+# Set up BAT_CONFIG_PATH for 'bat' syntax highlighting tool
 export BAT_CONFIG_PATH="$HOME/.config/bat/bat.conf"
 
+# Set up MANPATH for manual pages
 export MANPATH=/usr/share/man
 
-# For compilers to find zlib you may need to set:
+# Set up LDFLAGS for specifying library search paths
 export LDFLAGS="-L/opt/homebrew/opt/zlib/lib"
 
-# locale
+# Set up language and locale
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-# For pkg-config to find zlib you may need to set:
+# Set up package configuration path for pkg-config
 export PKG_CONFIG_PATH="/opt/homebrew/opt/zlib/lib/pkgconfig"
+
+# Set up CPPFLAGS for specifying C/C++ compiler flags
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include -I/opt/homebrew/opt/zlib/include"
 
-# Path to your oh-my-zsh installation.
+# Set up JAVA_HOME
+export JAVA_HOME=/usr/bin/java
+
+#################################################################################################################################
+#                                                           Zsh Configuration                                                   #
+#################################################################################################################################
+
+# Configure Zsh with Oh My Zsh and Powerlevel10k theme.
+
+# Set up ZSH configuration directory
 export ZSH="$HOME/.oh-my-zsh"
+
+# Add brew site-functions directory to fpath
 fpath+=("$(brew --prefix)/share/zsh/site-functions")
 
+# Add OpenJDK bin directory to PATH
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
-#=====================================================================================================================================
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# Set the ZSH theme to powerlevel10k
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-CASE_SENSITIVE="true"
-
- typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
+# Set up plugins for Oh My Zsh
 plugins=(git zsh-syntax-highlighting fast-syntax-highlighting zsh-autocomplete zsh-aliases-exa forgit zsh-autosuggestions)
+
+# Source Oh My Zsh
 source $ZSH/oh-my-zsh.sh
 
 
+#################################################################################################################################
+#                                                         Fuzzy Finder (FZF)                                                    #
+#################################################################################################################################
 
-#=============================================================== FZF Customization ==========================================================
+# Configure FZF options and key bindings.
 
+# Set up FZF (Fuzzy Finder) default options
 export FZF_DEFAULT_OPTS="--height 100% --preview 'file {}' --preview-window=up:50%:wrap"
 
-# Preview file content using bat (https://github.com/sharkdp/bat)
-# export FZF_CTRL_T_OPTS="
-#   --preview 'bat -n --color=always {}'
-#   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
-# Custom fzf keybindings and options
+# Set up FZF options for Ctrl+T (fuzzy file browsing)
 export FZF_CTRL_T_OPTS="
   --preview 'if [ -f {} ]; then bat --style=numbers --color=always {} 2>/dev/null || cat {}; elif [ -d {} ]; then tree -C {} | less -R; fi'
   --preview-window=up:50%:wrap"
 
-# CTRL-/ to toggle small preview window to see the full command
-# CTRL-Y to copy the command into clipboard using pbcopy
+# Set up FZF options for Ctrl+R (fuzzy history searching)
 export FZF_CTRL_R_OPTS="
   --preview 'echo {}' --preview-window=up:3:hidden:wrap
   --bind 'ctrl-/:toggle-preview'
@@ -129,12 +86,14 @@ export FZF_CTRL_R_OPTS="
   --color header:italic
   --header 'Press CTRL-Y to copy command into clipboard'"
 
-#============================================================ Forgit =================================================================
 
-# Fir forgit subcommand
-# after `forgit` was loaded
-export PATH="$PATH:$FORGIT_INSTALL_DIR/bin"
+#################################################################################################################################
+#                                                         Forgit (Git + FZF)                                                    #
+#################################################################################################################################
 
+# Configure Forgit options.
+
+# Set up FORGIT (Git commands with fuzzy finder) options
 export FORGIT_FZF_DEFAULT_OPTS="
 --exact
 --border
@@ -144,26 +103,29 @@ export FORGIT_FZF_DEFAULT_OPTS="
 "
 
 
-#=================================================== Pyenv and Pyenv-virtualenv Configuration ========================================
+#################################################################################################################################
+#                                                         pyenv Configuration                                                   #
+#################################################################################################################################
 
-# pyenv and pyenv-virtualenv
-
-# Set the root directory for pyenv
+# Set up pyenv environment variables
 export PYENV_ROOT="$HOME/.pyenv"
-
-# Add pyenv binary directory to the PATH
 export PATH="$PYENV_ROOT/bin:$PATH"
 
 # Initialize pyenv
 eval "$(pyenv init -)"
 eval "$(pyenv init --path)"
-if which pyenv-virtualenv-init > /dev/null; 
-  then eval "$(pyenv virtualenv-init -)";
-fi
-#==================================================================== Miniconda ===============================================================
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
+# Initialize pyenv-virtualenv if available
+if which pyenv-virtualenv-init > /dev/null; then
+  eval "$(pyenv virtualenv-init -)"
+fi
+
+#################################################################################################################################
+#                                                        Miniconda (conda)                                                      #
+#################################################################################################################################
+
+# Set up Miniconda (conda) if available.
+
 __conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
@@ -175,62 +137,66 @@ else
     fi
 fi
 unset __conda_setup
-# <<< conda initialize <<<
 
-#============================================================== Node version manager =======================================================
+#################################################################################################################################
+#                                                  Node Version Manager (NVM)                                                   #
+#################################################################################################################################
 
+# Set up NVM_DIR for nvm (Node Version Manager)
+export NVM_DIR="$HOME/.nvm"
 
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+# Source nvm.sh script
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
 
-# place this after nvm initialization!
+# Source nvm bash completion script
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+
+# Load nvmrc file if present and switch Node versions accordingly
 autoload -U add-zsh-hook
-
 load-nvmrc() {
   local nvmrc_path
   nvmrc_path="$(nvm_find_nvmrc)"
-
   if [ -n "$nvmrc_path" ]; then
     local nvmrc_node_version
     nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
     if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
+      nvm install  # Install Node version from nvmrc file if not already installed
     elif [ "$nvmrc_node_version" != "$(nvm version)" ]; then
-      nvm use
+      nvm use  # Switch to Node version from nvmrc file if different from the current version
     fi
   elif [ -n "$(PWD=$OLDPWD nvm_find_nvmrc)" ] && [ "$(nvm version)" != "$(nvm version default)" ]; then
-    nvm use default
+    nvm use default  # Switch to default Node version if nvmrc file not found
   fi
 }
-
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
+#################################################################################################################################
+#                                                    Go Programming Language                                                    #
+#################################################################################################################################
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Set up Go programming language environment.
 
-#=========================================================================  GO  ==============================================================
+# Add Go bin directory to PATH
+export PATH="$HOME/sdk/go1.18.2/bin:$PATH"
 
-export PATH="/opt/homebrew/opt/go@1.18/bin:$PATH"
-export GOPATH="/opt/homebrew/opt/go@1.18/bin/go"
+#################################################################################################################################
+#                                                Miscellaneous Configurations                                                   #
+#################################################################################################################################
 
-
-#=====================================================================================================================================
-
-
-# one password integration
+# Enable biometric unlock (assuming the variable is correctly set)
 $OP_BIOMETRIC_UNLOCK_ENABLED=true
 
+# Set 'exa' alias to show icons
 alias exa="exa --icons"
 
-# -- keep this line in almost buttom of file
+alias nls="ls --long --ignore-glob='node_modules' --header --icons"
+
+# Remove duplicates from PATH
 typeset -U PATH
 
+# Source fzf.zsh script if available
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# Source p10k.zsh if it exists
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
