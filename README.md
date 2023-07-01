@@ -70,7 +70,7 @@ To use these dot files, follow these steps:
    
 2. Navigate to the cloned repository:
    ```shell
-   cd dot-files
+   cd dotfiles
    ```
    
 3. Copy the desired dot files to your home directory (~):
