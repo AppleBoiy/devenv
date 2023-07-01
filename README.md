@@ -46,6 +46,7 @@ The dot files in this repository are organized as follows:
 - Other relevant dot files.
 
 
+
 <!-- DEPENDENCIES -->
 ## Dependencies
 To make use of these dot files, you may need to have certain dependencies installed. Here are some of the main dependencies:
@@ -53,7 +54,9 @@ To make use of these dot files, you may need to have certain dependencies instal
 - [Neovim](https://neovim.io/): A highly extensible text editor.
 - [Zsh](https://www.zsh.org/): A powerful shell with advanced features.
 - [Oh My Zsh](https://ohmyz.sh/): A community-driven framework for managing Zsh configurations.
-- Other relevant dependencies for specific tools or applications.
+- [NvChad](https://nvchad.github.io/): An opinionated Neovim setup with blazing-fast startup.
+
+Other relevant dependencies for specific tools or applications may also be required.
 
 
 <!-- INSTALLATION -->
