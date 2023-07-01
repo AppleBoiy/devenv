@@ -66,7 +66,7 @@ To use these dot files, follow these steps:
 1. Clone this repository to your local machine:
    ```shell
    git clone https://github.com/your-username/dot-files.git
-   ,,,
+   ```
    
 2. Navigate to the cloned repository:
    ```shell
