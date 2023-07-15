@@ -57,6 +57,7 @@ pkg-config
 pyenv
 readline
 rename
+rust
 tree
 tree-sitter
 unibilium
@@ -65,5 +66,5 @@ xz
 zstd
 font-comic-shanns-mono-nerd-font
 font-fira-code-nerd-font
-iterm2
 miniconda
+warp

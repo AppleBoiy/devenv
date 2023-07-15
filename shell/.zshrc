@@ -50,7 +50,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # Add brew site-functions directory to fpath
 fpath+=("$(brew --prefix)/share/zsh/site-functions")
-
+#
 # Add OpenJDK bin directory to PATH
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
@@ -59,7 +59,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set up plugins for Oh My Zsh
 plugins=(git zsh-syntax-highlighting fast-syntax-highlighting zsh-autocomplete zsh-aliases-exa forgit zsh-autosuggestions)
-
+#
 # Source Oh My Zsh
 source $ZSH/oh-my-zsh.sh
 
