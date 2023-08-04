@@ -1,0 +1,42 @@
+{
+  "formulae": [
+    "bash",
+    "brotli",
+    "c-ares",
+    "ca-certificates",
+    "docker",
+    "docker-completion",
+    "exa",
+    "forgit",
+    "fzf",
+    "gettext",
+    "gh",
+    "git",
+    "go",
+    "icu4c",
+    "jq",
+    "libgit2",
+    "libnghttp2",
+    "libssh2",
+    "libtermkey",
+    "libuv",
+    "libvterm",
+    "luajit",
+    "luv",
+    "msgpack",
+    "neovim",
+    "node",
+    "oniguruma",
+    "openssl@3",
+    "pcre2",
+    "tree",
+    "tree-sitter",
+    "unibilium"
+  ],
+  "casks": [
+    "1password-cli",
+    "anaconda",
+    "font-comic-shanns-mono-nerd-font",
+    "warp"
+  ]
+}
