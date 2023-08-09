@@ -29,6 +29,7 @@
     "oniguruma",
     "openssl@3",
     "pcre2",
+    "rename",
     "tree",
     "tree-sitter",
     "unibilium"
