@@ -1,5 +1,3 @@
-Certainly! Here's an example README file that you can use for the `bits-stdc-.h-for-mac` extension:
-
 # bits-stdc-.h-for-mac
 
 [![GitHub](https://img.shields.io/github/license/AppleBoiy/dotfiles)](https://github.com/AppleBoiy/dotfiles/blob/master/dev-environment/bits/LICENSE)
