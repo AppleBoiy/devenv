@@ -1,0 +1,11 @@
+<templateSet group="Python">
+  <template name="header" value="#!/usr/bin/env python3&#10;&quot;&quot;&quot;&#10;Author: $USER$ (Chaipat Jainan) &#10;Student ID: 650510606&#10;Work: $WORK$&#10;Class: 204111/2023 Sec TA&#10;DATE: $TIME$ $DATE$&#10;&quot;&quot;&quot;&#10;" description="header file for CS111 TA2023" toReformat="true" toShortenFQNames="true">
+    <variable name="USER" expression="user()" defaultValue="" alwaysStopAt="false" />
+    <variable name="WORK" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="false" />
+    <variable name="TIME" expression="time()" defaultValue="" alwaysStopAt="false" />
+    <variable name="DATE" expression="date()" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+</templateSet>

@@ -1,0 +1,10 @@
+<templateSet group="gRPC Request">
+  <template name="header" value="/*&#10; * @author Chaipat Jainan&#10; * @stdID 650510606&#10; * @work $NAME$&#10; * @class 204203 Sec 002&#10; * @date $TIME$ : $DATE$&#10; */&#10; " description="header file for CS203" toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="false" />
+    <variable name="TIME" expression="time()" defaultValue="" alwaysStopAt="false" />
+    <variable name="DATE" expression="date()" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+</templateSet>

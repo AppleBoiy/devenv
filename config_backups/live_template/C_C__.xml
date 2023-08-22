@@ -1,0 +1,36 @@
+<templateSet group="C/C++">
+  <template name="main" value="#include &lt;iostream&gt;&#10;&#10;int main() {&#10;    &#10;    $TODO$&#10;    $END$&#10;    &#10;    return 0;&#10;}&#10;" description="main function" toReformat="true" toShortenFQNames="true">
+    <variable name="TODO" expression="" defaultValue="&quot;// TODO: Add your code here.&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="c" value="true" />
+      <option name="cpp" value="true" />
+    </context>
+  </template>
+  <template name="print" value="std::cout &lt;&lt; $VAR$ &lt;&lt; std::endl;" description="println" toReformat="true" toShortenFQNames="true">
+    <variable name="VAR" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="c" value="true" />
+      <option name="cpp" value="true" />
+    </context>
+  </template>
+  <template name="temp" value="#include &lt;iostream&gt;&#10;&#10;int main() {&#10;    const int ARRAY_SIZE = $SIZE$;&#10;    $TYPE$ $NAME$[ARRAY_SIZE];&#10;&#10;    std::cout &lt;&lt; &quot;Enter values for the array:&quot; &lt;&lt; std::endl;&#10;    for (int i = 0; i &lt; ARRAY_SIZE; ++i) {&#10;        std::cout &lt;&lt; &quot;Element &quot; &lt;&lt; i &lt;&lt; &quot;: &quot;;&#10;        std::cin &gt;&gt; $NAME$[i];&#10;    }&#10;&#10;    // TODO: Add code to work with the array&#10;&#10;    return 0;&#10;}&#10;" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="SIZE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="TYPE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="c" value="true" />
+      <option name="cpp" value="true" />
+    </context>
+  </template>
+  <template name="header" value="/*&#10; * @file $file$&#10; * @author iccie (Chaipat Jainan)&#10; * @stdID 650510606&#10; * @work $work$&#10; * @class 204252 Sec 001&#10; * @date $time$ $date$&#10; */" description="header file for CS252" toReformat="false" toShortenFQNames="true">
+    <variable name="file" expression="fileName()" defaultValue="" alwaysStopAt="false" />
+    <variable name="work" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="time" expression="time()" defaultValue="" alwaysStopAt="false" />
+    <variable name="date" expression="date()" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="CMAKE" value="true" />
+      <option name="c" value="true" />
+      <option name="cpp" value="true" />
+    </context>
+  </template>
+</templateSet>

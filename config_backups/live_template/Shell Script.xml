@@ -1,0 +1,10 @@
+<templateSet group="Shell Script">
+  <template name="header" value="#!/usr/bin/env bash&#10;&#10;################################################################################&#10;# Author: Chaipat Jainan&#10;# Student ID: 650510606&#10;# Work: $FILE_NAME$&#10;# Class: 204203 Section 002&#10;# Date: $DATE$&#10;# Time: $TIME$&#10;################################################################################&#10;" description="header for shell script CS203" toReformat="false" toShortenFQNames="true">
+    <variable name="FILE_NAME" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="false" />
+    <variable name="DATE" expression="date()" defaultValue="" alwaysStopAt="false" />
+    <variable name="TIME" expression="time()" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="SHELL_SCRIPT" value="true" />
+    </context>
+  </template>
+</templateSet>

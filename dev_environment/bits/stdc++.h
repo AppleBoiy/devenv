@@ -1,16 +1,15 @@
-// C++ includes used for pre-compiling -*- C++ -*-
-
-/** @file stdc++.h
+/**
+ * C++ includes used for pre-compiling -*- C++ -*-
+ *
+ * @file stdc++.h
  *  This is an implementation file for a precompiled header.
   */
 
 // Also writing "using namespace std;" here so that you don't need to write it everytime you start a cpp file
-
 using namespace std;
 
 
 // 17.4.1.2 Headers
-
 // C
 #ifndef _GLIBCXX_NO_ASSERT
 
