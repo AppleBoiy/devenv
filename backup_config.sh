@@ -28,8 +28,8 @@ fi
 
 # Backup .nvim config
 if [ -d "$SOURCE_NVIM" ]; then
-  cp -r "$SOURCE_NVIM" "$DESTINATION_DIR/custom_nvim"
-  echo "Backed up nvim/lua/custom to $DESTINATION_DIR"
+  cp -r "$SOURCE_NVIM" "$DESTINATION_DIR/nvim/custom"
+  echo "Backed up nvim/lua/custom to $DESTINATION_DIR/nvim/custom/"
 fi
 
 echo "Backup completed successfully"
