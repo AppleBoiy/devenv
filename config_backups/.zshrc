@@ -4,7 +4,9 @@ source ~/.zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 
 export PATH="/opt/homebrew/anaconda3/bin:/opt/homebrew/anaconda3/bin/conda":$PATH
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
 
 # general use
 alias exa='exa --icons'
