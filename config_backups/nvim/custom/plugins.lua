@@ -60,22 +60,6 @@ local plugins = {
   --   "mg979/vim-visual-multi",
   --   lazy = false,
   -- }
-  {
-    "goolord/alpha-nvim",
-    enabled = true,
-    event = "BufWinEnter",
-    config = function()
-      require "custom.configs.alpha"
-    end,
-  },
-  {
-    "akinsho/toggleterm.nvim",
-    cmd = "Toggleterm",
-    event = "VeryLazy",
-    config = function()
-      require "custom.configs.toggleterm"
-    end,
-  },
 }
 
 return plugins
