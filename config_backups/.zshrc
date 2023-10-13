@@ -1,17 +1,15 @@
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+PATH="/usr/local/bin:$PATH"
 
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 
-export PATH="/opt/homebrew/anaconda3/bin:/opt/homebrew/anaconda3/bin/conda":$PATH
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/postgresql@15/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/postgresql@15/include"
 
-export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+alias ml='multipass'
 
 # general use
-alias exa='exa --icons'
-
-
 alias ls='exa'                                                          # ls
 alias l='exa -lbF --git'                                                # list, size, type, git
 alias ll='exa -lbGF --git'                                             # long list
@@ -24,9 +22,22 @@ alias lS='exa -1'                                                              #
 alias lt='exa --tree --level=2'                                         # tree
 
 
-# after `forgit` was loaded
-export PATH="$PATH:$FORGIT_INSTALL_DIR/bin"
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
+        . "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/homebrew/Caskroom/miniconda/base/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
