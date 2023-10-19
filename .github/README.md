@@ -6,10 +6,15 @@
   <p>My personal dot files for configuring my development environment</p>
 </div>
 
-<!-- ABOUT THE REPOSITORY -->
-## About the Repository
+## Introduction
 
 This is where I keep all the special settings and preferences for my coding environment. It's like my digital toolbox! Inside, you'll find settings for tools like Neovim, the shell (like `.bashrc` and `.zshrc`), and other files that make my development setup work just right. These settings are made to fit my needs and how I like to work.
+
+### Other configurations
+
+for other configurations, please check out:
+
+* [Neovim](https://github.com/AppleBoiy/nvim)
 
 ---
 
