@@ -59,3 +59,5 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
