@@ -3,12 +3,11 @@
 SOURCE_ZSHRC=~/.zshrc
 SOURCE_P10K=~/.p10k.sh
 
-
-DESTINATIONS=("./home/linux" "./home/macos" "./home/windows")
+DESTINATIONS=("./home/ubuntu" "./home/macos")
 
 
 echo "Select the operating system for which you want to back up configuration files:"
-echo "1. Linux"
+echo "1. Ubuntu"
 echo "2. macOS"
 read -p "Enter the number (1/2): " OS_INDEX
 

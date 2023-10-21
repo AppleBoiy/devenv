@@ -1,30 +1,24 @@
 PATH="/usr/local/bin:$PATH"
 
+# NVM setup
 export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 
+# PostgreSQL and OpenJDK paths
 export LDFLAGS="-L/opt/homebrew/opt/postgresql@15/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/postgresql@15/include -I/opt/homebrew/opt/openjdk/include"
+
+# Go environment
 export GOPATH="$HOME/.go"
 export GOROOT="$(brew --prefix golang)/libexec"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+
+# Add binary paths
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 alias ml='multipass'
-
-# general use
-# alias ls='exa'                                                          # ls
-# alias l='exa -lbF --git'                                                # list, size, type, git
-# alias ll='exa -lbGF --git'                                             # long list
-# alias llm='exa -lbGd --git --sort=modified'                            # long list, modified date sort
-# alias la='exa -lbhHigUmuSa --time-style=long-iso --git --color-scale'  # all list
-# alias lx='exa -lbhHigUmuSa@ --time-style=long-iso --git --color-scale' # all + extended list
-#
-# # specialty views
-# alias lS='exa -1'                                                              # one column, just names
-# alias lt='exa --tree --level=2'                                         # tree
 
 # ls to exa
 alias ls='exa --color=always --group-directories-first --icons'     # ls
@@ -57,7 +51,6 @@ unset __conda_setup
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
