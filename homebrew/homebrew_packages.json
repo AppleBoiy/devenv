@@ -1,6 +1,7 @@
 {
   "formulae": [
     "bash",
+    "bat",
     "ca-certificates",
     "cairo",
     "docker",
@@ -63,6 +64,7 @@
     "unibilium",
     "xorgproto",
     "xz",
+    "yarn",
     "zsh-autosuggestions",
     "zsh-syntax-highlighting",
     "zstd"
