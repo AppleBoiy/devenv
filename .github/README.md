@@ -2,8 +2,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <h1>Dot Files Repository</h1>
-  <p>My personal dot files for configuring my development environment</p>
+  <h1>Ape's DEV-ENV  Repository</h1>
+  <p>My personal development environment</p>
 </div>
 
 ## Introduction
