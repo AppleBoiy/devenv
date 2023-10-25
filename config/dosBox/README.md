@@ -21,4 +21,4 @@ copy [dosDox config file](DOSBox%200.74-3-3%20Preferences) to `~/Library/Prefere
 
 ## Additional Information
 
-- [CS231's wiki]("https://github.com/AppleBoiy/wiki-cs231")
+- [CS231's wiki](https://github.com/AppleBoiy/wiki-cs231)
