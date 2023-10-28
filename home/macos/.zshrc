@@ -21,15 +21,14 @@ export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 alias ml='multipass'
 
 alias ls='eza'
-alias ll='eza -lbF --git --icons'
+alias ll='eza $PWD -lbF --git --icons'
 alias l='eza -bFG --icons'
 alias llm='eza -lbGd --git --sort=modified'
 alias la='eza -lbhHigUmuSa --time-style=long-iso --git --color-scale'
-alias lx='eza -lbhHigUmuSa@ --time-style=long-iso --git --color-scale'
 
 # specialty views
 alias lS='eza -1'
-alias lt='eza --tree --level=2'
+alias lt='eza $PWD --tree --level=2 --icons'
 alias l.="eza -a | grep -E '^\.'"
 
 # >>> conda initialize >>>
