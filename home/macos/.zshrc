@@ -20,18 +20,17 @@ export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 alias ml='multipass'
 
-# ls to exa
-alias ls='exa --color=always --group-directories-first --icons'     # ls
-alias ll='exa -la --icons --octal-permissions --group-directories-first'
-alias l='exa -bGF --header --git --color=always --group-directories-first --icons' # long list
-alias llm='exa -lbGd --header --git --sort=modified --color=always --group-directories-first --icons' # long list, modified date sort
-alias la='exa --long --all --group --group-directories-first'
-alias lx='exa -lbhHigUmuSa@ --time-style=long-iso --git --color-scale --color=always --group-directories-first --icons' # all + extended list
+alias ls='eza'
+alias ll='eza -lbF --git --icons'
+alias l='eza -bFG --icons'
+alias llm='eza -lbGd --git --sort=modified'
+alias la='eza -lbhHigUmuSa --time-style=long-iso --git --color-scale'
+alias lx='eza -lbhHigUmuSa@ --time-style=long-iso --git --color-scale'
 
-# ls to exa - modalità speciali
-alias lS='exa -1 --color=always --group-directories-first --icons' # one column, just names
-alias lt='exa --tree --level=2 --color=always --group-directories-first --icons'    # tree
-alias l.="exa -a | grep -E '^\.'"
+# specialty views
+alias lS='eza -1'
+alias lt='eza --tree --level=2'
+alias l.="eza -a | grep -E '^\.'"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
