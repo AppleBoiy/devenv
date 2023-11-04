@@ -29,7 +29,7 @@ backup_configs() {
 }
 
 show_available_os() {
-  echo "Usage: . backup -o <os> (os: 'ubuntu' or 'macos')"
+  echo "Usage: ./backup -o <os> (os: 'ubuntu' or 'macos')"
   echo "Available OS:"
   echo "  -o ubuntu : Choose Ubuntu"
   echo "  -o macos  : Choose macOS"
