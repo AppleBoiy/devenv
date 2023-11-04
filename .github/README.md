@@ -1,4 +1,3 @@
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -10,11 +9,18 @@
 
 This is where I keep all the special settings and preferences for my coding environment. It's like my digital toolbox! Inside, you'll find settings for tools like Neovim, the shell (like `.bashrc` and `.zshrc`), and other files that make my development setup work just right. These settings are made to fit my needs and how I like to work.
 
+## Backup
+
+```shell
+bash backup.sh macos
+
+```
+
 ### Other configurations
 
 for other configurations, please check out:
 
-* [Neovim](https://github.com/AppleBoiy/nvim)
+- [Neovim](https://github.com/AppleBoiy/nvim)
 
 ---
 
