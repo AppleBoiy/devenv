@@ -9,8 +9,8 @@ backup_configs() {
   local dest_dir=""
 
   case "$1" in
-    ubuntu) dest_dir="./home/ubuntu" ;;
-    macos) dest_dir="./home/macos" ;;
+    ubuntu) dest_dir="$HOME/.devenv/home/ubuntu" ;;
+    macos) dest_dir="$HOME/.devenv/home/macos" ;;
     *) handle_error "Invalid operating system. Please specify either 'ubuntu' or 'macos'."
   esac
 
