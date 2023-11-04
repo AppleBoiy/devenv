@@ -22,6 +22,8 @@ backup_configs() {
     [ -f "$file" ] && cp "$file" "$dest_dir" || :
   done
 
+  sudo cp backup.sh /usr/local/bin/backup
+
   time=$(date +"%Y-%m-%d %H:%M:%S")
   git add . && git commit -m "Backed up configuration files on $time" && git push || handle_error "Failed to commit changes to Git."
 
