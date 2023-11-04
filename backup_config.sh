@@ -44,4 +44,3 @@ else
   echo "Invalid choice. Please enter a valid number (1/2)."
 fi
 
-bash homebrew/install_homebrew_packages.sh
