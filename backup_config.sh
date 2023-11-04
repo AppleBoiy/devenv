@@ -1,5 +1,7 @@
 #!/bin/bash
 
+bash homebrew/list_installed_packages.sh
+
 ZSHRC=~/.zshrc
 P10K=~/.p10k.zsh
 BASHRC=~/.bashrc
@@ -41,3 +43,5 @@ if [ "$OS_INDEX" -ge 1 ] && [ "$OS_INDEX" -le ${#DEST[@]} ]; then
 else
   echo "Invalid choice. Please enter a valid number (1/2)."
 fi
+
+bash homebrew/install_homebrew_packages.sh
