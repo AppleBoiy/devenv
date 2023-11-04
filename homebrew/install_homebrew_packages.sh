@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "installing..."
+
 # Function to install jq if not found
 install_jq() {
     echo "jq not found. Installing jq..."
