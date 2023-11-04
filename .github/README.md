@@ -13,7 +13,7 @@ This is where I keep all the special settings and preferences for my coding envi
 git clone git@github.com:Appleboiy.com/devenv.git ~/.devenv
 ```
 
-## Backup
+## Usage
 
 ```shell
 ./backup.sh -o macos
