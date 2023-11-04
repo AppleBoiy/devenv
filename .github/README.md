@@ -8,9 +8,11 @@
 ## Introduction
 
 This is where I keep all the special settings and preferences for my coding environment. It's like my digital toolbox! Inside, you'll find settings for tools like Neovim, the shell (like `.bashrc` and `.zshrc`), and other files that make my development setup work just right. These settings are made to fit my needs and how I like to work.
+
 ## Installation
+
 ```shell
-git clone git@github.com:Appleboiy.com/devenv.git ~/.devenv
+git clone git@github.com:Appleboiy/devenv.git ~/.devenv
 ```
 
 ## Usage
