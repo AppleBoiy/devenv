@@ -36,6 +36,7 @@ if [ "$OS_INDEX" -ge 1 ] && [ "$OS_INDEX" -le ${#DEST[@]} ]; then
   TIME=$(date +"%Y-%m-%d %H:%M:%S")
   git add .
   git commit -m "Backed up configuration files on $TIME"
+  git push
   echo "Backup completed successfully."
 else
   echo "Invalid choice. Please enter a valid number (1/2)."
