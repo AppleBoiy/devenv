@@ -22,8 +22,6 @@ backup_configs() {
     [ -f "$file" ] && cp "$file" "$dest_dir" || :
   done
 
-  sudo cp backup.sh /usr/local/bin/backup
-
   time=$(date +"%Y-%m-%d %H:%M:%S")
   git add . && git commit -m "Backed up configuration files on $time" && git push || handle_error "Failed to commit changes to Git."
 
@@ -31,7 +29,7 @@ backup_configs() {
 }
 
 show_available_os() {
-  echo "Usage: backup -o <os> (os: 'ubuntu' or 'macos')"
+  echo "Usage: . backup -o <os> (os: 'ubuntu' or 'macos')"
   echo "Available OS:"
   echo "  -o ubuntu : Choose Ubuntu"
   echo "  -o macos  : Choose macOS"
