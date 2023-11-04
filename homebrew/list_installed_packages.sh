@@ -27,7 +27,7 @@ json_object=$(jq -n --argjson formulae "$(echo "$installed_formulae" | jq -R . |
                       '{ "formulae": $formulae, "casks": $casks }')
 
 # Save the JSON object to a file named "homebrew_packages.json"
-echo "$json_object" > homebrew_packages.json
+echo "$json_object" > homebrew/homebrew_packages.json
 
 echo "Installed packages have been saved to homebrew_packages.json!"
 

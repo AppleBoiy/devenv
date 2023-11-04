@@ -62,6 +62,7 @@
     "xorgproto",
     "xz",
     "yarn",
+    "zoxide",
     "zsh-autosuggestions",
     "zsh-syntax-highlighting",
     "zstd"
