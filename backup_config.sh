@@ -6,12 +6,10 @@ BASHRC=~/.bashrc
 
 DEST=("./home/ubuntu" "./home/macos")
 
-
 echo "Select the operating system for which you want to back up configuration files:"
 echo "1. Ubuntu"
 echo "2. macOS"
 read -p "Enter the number (1/2): " OS_INDEX
-
 
 if [ "$OS_INDEX" -ge 1 ] && [ "$OS_INDEX" -le ${#DEST[@]} ]; then
   DESTINATION_DIR="${DEST[OS_INDEX - 1]}"
@@ -35,6 +33,9 @@ if [ "$OS_INDEX" -ge 1 ] && [ "$OS_INDEX" -le ${#DEST[@]} ]; then
     echo "Backed up .bashrc to $DESTINATION_DIR"
   fi
 
+  TIME=$(date +"%Y-%m-%d %H:%M:%S")
+  git add .
+  git commit -m "Backed up configuration files on $TIME"
   echo "Backup completed successfully."
 else
   echo "Invalid choice. Please enter a valid number (1/2)."
