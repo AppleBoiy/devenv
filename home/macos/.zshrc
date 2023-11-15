@@ -18,20 +18,6 @@ export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
-alias gfp="git fetch && git pull"
-alias ml='multipass'
-
-alias ls='eza'
-alias ll='eza $PWD -lbF --git --icons'
-alias l='eza -bFG --icons'
-alias llm='eza -lbGd --git --sort=modified'
-alias la='eza -lbhHigUmuSa --time-style=long-iso --git --color-scale'
-
-# specialty views
-alias lS='eza -1'
-alias lt='eza $PWD --tree --level=2 --icons'
-alias l.="eza -a | grep -E '^\.'"
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -52,5 +38,9 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 eval "$(zoxide init zsh)"
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
