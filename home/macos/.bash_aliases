@@ -2,6 +2,8 @@
 
 alias gfp="git fetch && git pull"
 alias ml='multipass'
+
+# This command is specific to my machine. Be sure to change it to your own or remove it.
 alias run='if [ -f ./run ]; then ./run; else echo "No run script found"; fi'
 
 alias ls='eza'
