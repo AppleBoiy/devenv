@@ -38,6 +38,7 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 eval "$(zoxide init zsh)"
+eval "$(direnv hook zsh)"
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
