@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+
+build_c() {
+    cmake . && make
+	clear
+	echo "Running C program..."
+    # Remove generated files
+    ./mainc && clean_generated_files
+}
+
+build_cpp() {
+    cmake . && make
+    clear
+    echo "Running C++ program..."
+    # Remove generated files
+    ./maincpp && clean_generated_files
+}
+
+build_java() {
+	# compile java
+    javac P010.java
+    java P010
+    # Clean up compiled Java files
+    find . -name "*.class" -type f -delete
+}
+
+run_python() {
+    python3 "P010.py"
+}
+
+clean_generated_files() {
+	rm ./mainc ./maincpp
+
+    rm -rf CMakeFiles
+    rm -rf cmake_install.cmake
+    rm -rf CMakeCache.txt
+    rm -rf Makefile
+}
+
+main() {
+    case $1 in
+        "c")
+            build_c
+            ;;
+        "cpp")
+            build_cpp
+            ;;
+        "j" | "java")
+            build_java
+            ;;
+        "p" | "python")
+            run_python
+            ;;
+        *)
+            echo "Usage: run.sh [c|cpp|j|p]"
+            echo "c: compile and run C"
+            echo "cpp: compile and run C++"
+            echo "j: compile and run Java"
+            echo "p: run Python"
+            ;;
+    esac
+}
+
+main "$@"

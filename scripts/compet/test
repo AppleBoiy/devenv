@@ -1,0 +1,44 @@
+#!/bin/bash
+
+set -e
+
+test_c() {
+	cmake .
+	make
+	clear
+}
+
+test_c
+for i in {1..1000}
+do
+	lang=$1
+
+	case $lang in
+		"c" | "cpp")
+			if [ "$lang" == "c" ]; then
+    			echo "$i" | ./mainc > cout.txt
+			else
+				echo "$i" | ./maincpp > cout.txt
+			fi
+
+    		echo "$i" | python3 P010.py > pout.txt
+			;;
+		"j" | "java")
+			javac P010.java
+			echo "$i" | java P010 > cout.txt
+
+			# Clean up compiled Java files
+			find . -name "*.class" -type f -delete
+
+			echo "$i" | ./mainc > pout.txt
+			echo "" > pout.txt
+			;;
+
+	esac
+
+    diff cout.txt pout.txt
+
+	echo "Passed $i tests"
+done
+
+rm cout.txt pout.txt

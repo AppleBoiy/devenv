@@ -1,0 +1,30 @@
+#!/bin/bash
+
+set -e
+
+prev_prob=$1
+prob=$2
+
+# Automate script
+
+file_names=("execute" "test" "clear")
+
+for file_name in "${file_names[@]}"; do
+	sed "s/$prev_prob/$prob/g" "scripts/$file_name" > "scripts/$file_name.tmp" && \
+	mv "scripts/$file_name.tmp" "scripts/$file_name"
+done
+
+# Rename files
+
+extensions=("c" "cpp" "java" "py")
+
+for extension in "${extensions[@]}"; do
+	if [ -f "$prev_prob.$extension" ]; then
+		mv "$prev_prob.$extension" "$prob.$extension"
+	fi
+done
+
+# Update CMakeLists.txt
+# ignore case sensitivity
+sed "s/$prev_prob/$prob/gI" "CMakeLists.txt" > "CMakeLists.txt.tmp" && \
+mv "CMakeLists.txt.tmp" "CMakeLists.txt"

@@ -2,7 +2,6 @@
 
 alias gfp="git fetch && git pull"
 alias ml='multipass'
-alias run='if [ -f ./run ]; then ./run; else echo "No run script found"; fi'
 
 alias ls='eza'
 alias ll='eza $PWD -lbF --git --icons'
@@ -15,3 +14,4 @@ alias chore="git add . && git commit -m '~ chore' && git push"
 alias lS='eza -1'
 alias lt='eza $PWD --tree --level=2 --icons'
 alias l.="eza -a | grep -E '^\.'"
+

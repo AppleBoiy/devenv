@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+clean_generated_files() {
+	cache="CMakeCache.txt cmake_install.cmake Makefile mainc maincpp P010.class cout.txt pout.txt"
+	for file in $cache
+	do
+		if [ -f "$PWD"/"$file" ]; then
+			rm "$PWD"/"$file"
+		fi
+	done
+
+	if [ -d "$PWD/CMakeFiles" ]; then
+		rm -rf "$PWD"/CMakeFiles
+	fi
+
+}
+
+clean_generated_files
