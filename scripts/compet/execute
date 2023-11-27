@@ -18,8 +18,8 @@ build_cpp() {
 
 build_java() {
 	# compile java
-    javac P010.java
-    java P010
+    javac "$QUESTION".java
+    java "$QUESTION"
     # Clean up compiled Java files
     find . -name "*.class" -type f -delete
 }

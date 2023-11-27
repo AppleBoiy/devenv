@@ -21,11 +21,11 @@ do
 				echo "$i" | ./maincpp > cout.txt
 			fi
 
-    		echo "$i" | python3 P010.py > pout.txt
+    		echo "$i" | python3 "$QUESTION".py > pout.txt
 			;;
 		"j" | "java")
-			javac P010.java
-			echo "$i" | java P010 > cout.txt
+			javac "$QUESTION".java
+			echo "$i" | java "QUESTION" > cout.txt
 
 			# Clean up compiled Java files
 			find . -name "*.class" -type f -delete

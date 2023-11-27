@@ -46,3 +46,5 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+typeset -U path
