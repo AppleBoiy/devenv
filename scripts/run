@@ -11,7 +11,6 @@ backup_configs() {
     case "$1" in
     ubuntu) 
 	    dest_dir="$HOME/.devenv/home/ubuntu" 
-	    echo "Backup to ubuntu"
 	    ;;
     macos) dest_dir="$HOME/.devenv/home/macos" ;;
     *) handle_error "Invalid operating system. Please specify either 'ubuntu' or 'macos'." ;;
@@ -37,7 +36,7 @@ backup_configs() {
 }
 
 show_available_os() {
-    echo "Usage: make backup <os> (os: 'ubuntu' or 'macos')"
+    echo "Usage: make backup os=<os> (os: 'ubuntu' or 'macos')"
     echo "Available OS:"
     echo "  ubuntu : Choose Ubuntu"
     echo "  macos  : Choose macOS"
@@ -53,7 +52,7 @@ else
             show_available_os
             exit 0
             ;;
-        *) handle_error "Usage: make backup <os> (os: 'ubuntu' or 'macos')" ;;
+        *) handle_error "Usage: make backup os=<os> (os: 'ubuntu' or 'macos')" ;;
         esac
     done
 fi
