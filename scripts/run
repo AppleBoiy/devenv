@@ -34,10 +34,10 @@ backup_configs() {
 }
 
 show_available_os() {
-    echo "Usage: ./backup -o <os> (os: 'ubuntu' or 'macos')"
+    echo "Usage: make backup <os> (os: 'ubuntu' or 'macos')"
     echo "Available OS:"
-    echo "  -o ubuntu : Choose Ubuntu"
-    echo "  -o macos  : Choose macOS"
+    echo "  ubuntu : Choose Ubuntu"
+    echo "  macos  : Choose macOS"
 }
 
 if [ "$#" -eq 0 ]; then
@@ -50,7 +50,7 @@ else
             show_available_os
             exit 0
             ;;
-        *) handle_error "Usage: $0 -o <os> (os: 'ubuntu' or 'macos')" ;;
+        *) handle_error "Usage: make backup <os> (os: 'ubuntu' or 'macos')" ;;
         esac
     done
 fi
