@@ -9,7 +9,6 @@
 
 Create script named `run` in `/usr/local/bin/`
 
-
 ```bash
 #!/usr/bin/env bash
 
@@ -41,29 +40,29 @@ if ! is_valid_directory; then
 fi
 
 case "$1" in
-	"clear" | "c")
-		bash "$CLEAR"
-		;;
+ "clear" | "c")
+  bash "$CLEAR"
+  ;;
 
-	"test" | "t")
-		bash "$TEST"
-		;;
+ "test" | "t")
+  bash "$TEST"
+  ;;
 
-	"execute" | "e")
-		bash "$EXECUTE" "$2"
-		;;
+ "execute" | "e")
+  bash "$EXECUTE" "$2"
+  ;;
 
-	"update" | "u")
-		bash "$UPDATE" "$2" "$3"
-		;;
+ "update" | "u")
+  bash "$UPDATE" "$2" "$3"
+  ;;
 
-	*)
-		echo "Usage: run [command] [args]"
-		echo "clear: clear generated files"
-		echo "test: run tests"
-		echo "execute: run program"
-		echo "update: update program"
-		;;
+ *)
+  echo "Usage: run [command] [args]"
+  echo "clear: clear generated files"
+  echo "test: run tests"
+  echo "execute: run program"
+  echo "update: update program"
+  ;;
 esac
 
 ```
