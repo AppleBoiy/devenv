@@ -1,3 +1,3 @@
 backup:
-	bash run -o macos
+	bash scripts/run $1
 
