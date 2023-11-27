@@ -1,5 +1,5 @@
 backup:
-	bash scripts/run $1
+	bash scripts/run $(os)
 
 help:
 	bash scripts/run -h
