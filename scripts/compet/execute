@@ -25,16 +25,16 @@ build_java() {
 }
 
 run_python() {
-    python3 "P010.py"
+    python3 "$QUESTION.py"
 }
 
 clean_generated_files() {
-	rm ./mainc ./maincpp
-
-    rm -rf CMakeFiles
-    rm -rf cmake_install.cmake
-    rm -rf CMakeCache.txt
-    rm -rf Makefile
+    caches=(CMakeFiles cmake_install.cmake CMakeCache.txt Makefile mainc maincpp)
+    for cache in "${caches[@]}"; do
+        if [ -f "$cache" ]; then
+            rm "$cache"
+        fi
+    done
 }
 
 main() {
