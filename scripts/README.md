@@ -36,7 +36,7 @@ if [[ "$current_dir" == "$HOME/repo" || $current_dir =~ cmu ]]; then
 
 if ! is_valid_directory; then
   echo "Please run this script from the  git repo directory"
-  echo "or a directory containing 'cmu-y' in its absolute path."
+  echo "or a directory containing 'cmu' in its absolute path."
   exit 1
 fi
 
