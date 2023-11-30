@@ -35,6 +35,14 @@ clean_generated_files() {
             rm "$cache"
         fi
     done
+
+    dir_cache=(CMakeFiles .pytest_cache __pycache__)
+    for cache in "${dir_cache[@]}"; do
+        if [ -d "$cache" ]; then
+            rm -rf "$cache"
+        fi
+    done
+
 }
 
 main() {

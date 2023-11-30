@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+cache_dir=(".pytest_cache" "__pycache__")
+cache_files=("CMakeCache.txt" "cmake_install.cmake" ".DS_Store")
+
+clean_generated_files() {
+    for dir in "${cache_dir[@]}"; do
+        find . -name "$dir" -type d -exec rm -rf {} \;
+    done
+
+    for file in "${cache_files[@]}"; do
+        find . -name "$file" -type f -exec rm -rf {} \;
+    done
+}
+
+clean_generated_files

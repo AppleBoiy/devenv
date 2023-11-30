@@ -25,7 +25,7 @@ do
 			;;
 		"j" | "java")
 			javac "$QUESTION".java
-			echo "$i" | java "QUESTION" > cout.txt
+			echo "$i" | java "$QUESTION" > cout.txt
 
 			# Clean up compiled Java files
 			find . -name "*.class" -type f -delete
