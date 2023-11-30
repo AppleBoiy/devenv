@@ -3,14 +3,36 @@
 cache_dir=(".pytest_cache" "__pycache__")
 cache_files=("CMakeCache.txt" "cmake_install.cmake" ".DS_Store")
 
+to_remove=()
+
 clean_generated_files() {
     for dir in "${cache_dir[@]}"; do
-        find . -name "$dir" -type d -exec rm -rf {} \;
+        mapfile -t dirs_to_remove < <(find . -name "$dir" -type d)
+        to_remove+=("${dirs_to_remove[@]}")
     done
 
     for file in "${cache_files[@]}"; do
-        find . -name "$file" -type f -exec rm -rf {} \;
+        mapfile -t files_to_remove < <(find . -name "$file" -type f)
+        to_remove+=("${files_to_remove[@]}")
     done
+
+    echo "The following files and directories will be removed:"
+    for item in "${to_remove[@]}"; do
+        echo "$item"
+    done
+
+    if [[ ${#to_remove[@]} -eq 0 ]]; then
+        echo "Nothing to remove."
+        exit 0
+    fi
+
+    read -p "Are you sure you want to continue? (y/N) " -n 1 -r
+
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        for item in "${to_remove[@]}"; do
+            rm -rf "$item"
+        done
+    fi
 }
 
 clean_generated_files

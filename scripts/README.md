@@ -21,11 +21,12 @@ CLEAR="$DIR_SCRIPTS/clear"
 TEST="$DIR_SCRIPTS/test"
 EXECUTE="$DIR_SCRIPTS/execute"
 UPDATE="$DIR_SCRIPTS/update"
+AUTOREMOVE="$DIR_SCRIPTS/autoremove"
 
 is_valid_directory() {
 local current_dir
 current_dir="$(pwd)"
-if [[ "$current_dir" == "$HOME/repo" || $current_dir =~ cmu-y ]]; then
+if [[ "$current_dir" == "$HOME/repo" || $current_dir =~ cmu ]]; then
     return 0  # Valid directory
   else
     return 1  # Invalid directory
@@ -56,12 +57,17 @@ case "$1" in
   bash "$UPDATE" "$2" "$3"
   ;;
 
+ "autoremove" | "rm")
+  bash "$AUTOREMOVE"
+  ;;
+
  *)
   echo "Usage: run [command] [args]"
   echo "clear: clear generated files"
   echo "test: run tests"
   echo "execute: run program"
   echo "update: update program"
+  echo "autoremove: remove cache files"
   ;;
 esac
 
