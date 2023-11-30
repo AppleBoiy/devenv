@@ -2,6 +2,10 @@
 
 This is a header file that includes every standard library. It is primarily used for competitive programming.
 
+| Platform | Status |
+| -------- | ------ |
+| macOS    | ✅     |
+
 ## Installation
 
 1. create a directory for bits/stdc++.h
