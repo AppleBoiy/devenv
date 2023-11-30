@@ -15,11 +15,12 @@ This is where I keep all the special settings and preferences for my coding envi
 git clone git@github.com:Appleboiy/devenv.git ~/.devenv
 ```
 
-## Usage
+## Backup
 
 ```shell
-./backup.sh -o macos
+# replace <os> with your os "macos" or "ubuntu"
 
+make backup os=<os>
 ```
 
 ### Other configurations
@@ -27,6 +28,7 @@ git clone git@github.com:Appleboiy/devenv.git ~/.devenv
 for other configurations, please check out:
 
 - [Neovim](https://github.com/AppleBoiy/nvim)
+- [bits/stdc++.h](https://gist.github.com/AppleBoiy/d876b6e31320b703f13e5f3f222fb9ae)
 
 ---
 
