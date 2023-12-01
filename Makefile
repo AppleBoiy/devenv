@@ -1,3 +1,4 @@
+.SILENT:
 backup:
 	bash scripts/backup -o $(os)
 
