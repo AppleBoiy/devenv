@@ -19,7 +19,7 @@ parse_git_branch() {
   local git_status=$(git status --porcelain 2>/dev/null)
   local color=green
   if echo "$git_status" | grep -q "^ M"; then
-    color=blue
+    color=yellow
     branch="${branch}*"
   fi
   if echo "$git_status" | grep -qE "^ A|^\?\?"; then
@@ -27,7 +27,7 @@ parse_git_branch() {
     branch="${branch}+"
   fi
   if echo "$git_status" | grep -q "^ D"; then
-    color=blue
+    color=red
     branch="${branch}-"
   fi
 
@@ -69,5 +69,11 @@ function extract() {
     fi
 }
 
+function fd() {
+  preview="git diff $@ --color=always -- {-1}"
+  git diff $@ --name-only | fzf -m --ansi --preview $preview
+}
+
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+export PATH="/Users/iccy/.config/git-fuzzy/bin:$PATH"
